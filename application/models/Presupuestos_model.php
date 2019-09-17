@@ -1,13 +1,13 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Ventas_model extends CI_Model {
+class Presupuestos_model extends CI_Model {
 
-	public function getVentas(){
-		$this->db->select("v.*,c.nombre,tc.nombre as tipocomprobante");
-		$this->db->from("ventas v");
-		$this->db->join("clientes c","v.cliente_id = c.id");
-		$this->db->join("tipo_comprobante tc","v.tipo_comprobante_id = tc.id");
+	public function getPresupuestos(){
+		$this->db->select("pre.*,c.nombre,tc.nombre as tipocomprobante");
+		$this->db->from("presupuestos pre");
+		$this->db->join("clientes c","pre.cliente_id = c.id");
+		$this->db->join("tipo_comprobante tc","pre.tipo_comprobante_id = tc.id");
 		$resultados = $this->db->get();
 		if ($resultados->num_rows() > 0) {
 			return $resultados->result();
@@ -15,6 +15,7 @@ class Ventas_model extends CI_Model {
 		{
 			return false;
 		}
+
 	}
 	public function getVentasbyDate($fechainicio,$fechafin){
 		$this->db->select("v.*,c.nombre,tc.nombre as tipocomprobante");
@@ -32,9 +33,9 @@ class Ventas_model extends CI_Model {
 		}
 	}
 
-	public function getVenta($id){
+	public function getPresupuesto($id){
 		$this->db->select("v.*,c.nombre,c.direccion,c.telefono,c.num_documento as documento,tc.nombre as tipocomprobante");
-		$this->db->from("ventas v");
+		$this->db->from("presupuestos v");
 		$this->db->join("clientes c","v.cliente_id = c.id");
 		$this->db->join("tipo_comprobante tc","v.tipo_comprobante_id = tc.id");
 		$this->db->where("v.id",$id);
@@ -44,9 +45,9 @@ class Ventas_model extends CI_Model {
 
 	public function getDetalle($id){
 		$this->db->select("dt.*,p.codigo,p.nombre");
-		$this->db->from("detalle_venta dt");
+		$this->db->from("detalle_presupuesto dt");
 		$this->db->join("productos p","dt.producto_id = p.id");
-		$this->db->where("dt.venta_id",$id);
+		$this->db->where("dt.presupuesto_id",$id);
 		$resultados = $this->db->get();
 		return $resultados->result();
 	}
@@ -71,7 +72,7 @@ class Ventas_model extends CI_Model {
 	}
 
 	public function save($data){
-		return $this->db->insert("ventas",$data);
+		return $this->db->insert("presupuestos",$data);
 	}
 
 	public function lastID(){
@@ -84,7 +85,7 @@ class Ventas_model extends CI_Model {
 	}
 
 	public function save_detalle($data){
-		$this->db->insert("detalle_venta",$data);
+		$this->db->insert("detalle_presupuesto",$data);
 	}
 
 

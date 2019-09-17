@@ -9,18 +9,18 @@
 </div> <br>
 <div class="row">
 	<div class="col-xs-6">	
-		<b>CLIENTE</b><br>
-		<b>Nombre:</b> <?php echo $venta->nombre;?> <br>
-		<b>Nro Documento:</b> <?php echo $venta->documento;?><br>
-		<b>Telefono:</b> <?php echo $venta->telefono;?> <br>
-		<b>Direccion</b> <?php echo $venta->direccion;?><br>
+		<b>Proveedor</b><br>
+		<b>Nombre:</b> <?php echo $compra->nombre;?> <br>
+		<!-- <b>Nro Documento:</b> <?php echo $compra->documento;?><br> -->
+		<b>Telefono:</b> <?php echo $compra->telefono;?> <br>
+		<b>Direccion</b> <?php echo $compra->direccion;?><br>
 	</div>	
 	<div class="col-xs-6">	
-		<b>COMPROBANTE</b> <br>
-		<b>Tipo de Comprobante:</b> <?php echo $venta->tipocomprobante;?><br>
-		<b>Serie:</b> <?php echo $venta->serie;?><br>
-		<b>Nro de Comprobante:</b><?php echo $venta->num_documento;?><br>
-		<b>Fecha</b> <?php echo $venta->fecha;?>
+		 <b>COMPROBANTE</b> <br>
+		<b>Tipo de Comprobante:</b> <?php echo $compra->tipocomprobante;?><br>
+		<b>Serie:</b> <?php echo $compra->serie;?><br>
+		<b>Nro de Comprobante:</b><?php echo $compra->num_documento;?><br> 
+		<b>Fecha</b> <?php echo $compra->fecha;?>
 	</div>	
 </div>
 <br>
@@ -50,19 +50,19 @@
 			<tfoot>
 				<tr>
 					<td colspan="4" class="text-right"><strong>Subtotal:</strong></td>
-					<td><?php echo $venta->subtotal;?></td>
+					<td><?php echo $compra->subtotal;?></td>
 				</tr>
 				<tr>
-					<td colspan="4" class="text-right"><strong>IGV:</strong></td>
-					<td><?php echo $venta->igv;?></td>
+					<td colspan="4" class="text-right"><strong>IVA:</strong></td>
+					<td><?php echo $compra->igv;?></td>
 				</tr>
 				<tr>
 					<td colspan="4" class="text-right"><strong>Descuento:</strong></td>
-					<td><?php echo $venta->descuento;?></td>
+					<td><?php echo $compra->descuento;?></td>
 				</tr>
 				<tr>
 					<td colspan="4" class="text-right"><strong>Total:</strong></td>
-					<td><?php echo $venta->total;?></td>
+					<td><?php echo $compra->total;?></td>
 				</tr>
 			</tfoot>
 		</table>
